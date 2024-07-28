@@ -42,6 +42,7 @@ exports.addExpense = async (req, res) => {
 
   let participantData = [];
   try {
+    // Calculate the amount each participant owes
     switch (splitMethod) {
       case "EQUAL":
         if (participants.length < 2) {
@@ -49,6 +50,7 @@ exports.addExpense = async (req, res) => {
             .status(400)
             .send("At least two participants are required.");
         }
+        // Divide the amount equally among all participants
         const amountPerParticipant = Math.floor(amount / participants.length);
         const remainder = amount % participants.length;
         participantData = participants.map((userId, index) => ({
