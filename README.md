@@ -33,5 +33,6 @@ JWT_SECRET=your_jwt_secret
 PORT=4000
 
 4. Start a Server
-   nodemon index.js
+
+   "nodemon index.js" or "node index"
    
